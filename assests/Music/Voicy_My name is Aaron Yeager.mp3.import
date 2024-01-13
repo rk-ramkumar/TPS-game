@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkw5mcf51exbj"
+path="res://.godot/imported/Voicy_My name is Aaron Yeager.mp3-5899813b84d80e8810167cd8b6d398ff.mp3str"
+
+[deps]
+
+source_file="res://assests/Music/Voicy_My name is Aaron Yeager.mp3"
+dest_files=["res://.godot/imported/Voicy_My name is Aaron Yeager.mp3-5899813b84d80e8810167cd8b6d398ff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

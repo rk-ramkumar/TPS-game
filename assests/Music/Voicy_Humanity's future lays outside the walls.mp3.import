@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgmao7r27bjw4"
+path="res://.godot/imported/Voicy_Humanity's future lays outside the walls.mp3-b451e50b27797c461aa37d4cfac3c64a.mp3str"
+
+[deps]
+
+source_file="res://assests/Music/Voicy_Humanity's future lays outside the walls.mp3"
+dest_files=["res://.godot/imported/Voicy_Humanity's future lays outside the walls.mp3-b451e50b27797c461aa37d4cfac3c64a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
