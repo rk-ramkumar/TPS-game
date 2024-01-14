@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://assests/Fonts/Ditty.ttf"
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
