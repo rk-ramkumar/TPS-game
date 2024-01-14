@@ -27,7 +27,7 @@ enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
 
 [gui]
 
-theme/custom_font="res://assests/Fonts/Ditty.ttf"
+theme/custom_font="res://assests/Fonts/lintxt.ttf"
 
 [input_devices]
 
