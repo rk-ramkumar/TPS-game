@@ -1,23 +1,24 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+@onready var play_options_bg = $PlayOptionsBg
+@onready var h_box_container = $MarginContainer/HBoxContainer
 
 func _on_quit_pressed():
 	get_tree().quit()
 
 
 func _on_play_pressed():
-	pass # Replace with function body.
+	play_options_bg.show()
+	h_box_container.show()
 
 
 func _on_options_pressed():
 	get_tree().change_scene_to_file("res://scenes/options_menu.tscn")
+
+
+func _on_online_pressed():
+	pass # Replace with function body.
+
+
+func _on_local_pressed():
+	get_tree().change_scene_to_file("res://scenes/offline_lobby.tscn")

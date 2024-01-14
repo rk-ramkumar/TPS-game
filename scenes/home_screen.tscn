@@ -38,6 +38,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.439216)
 
+[node name="PlayOptionsBg" type="ColorRect" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = -0.116
+anchor_top = -0.285
+anchor_right = 0.266
+anchor_bottom = -0.048
+offset_left = -0.367996
+offset_top = -0.319977
+offset_right = -0.368042
+offset_bottom = -0.320011
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12549, 0.12549, 0.12549, 0.439216)
+
 [node name="Label" type="Label" parent="."]
 anchors_preset = -1
 anchor_left = -0.494
@@ -101,7 +116,33 @@ flat = true
 alignment = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Online" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Online"
+flat = true
+
+[node name="Local" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Local"
+flat = true
+
 [connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Online" to="." method="_on_online_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Local" to="." method="_on_local_pressed"]

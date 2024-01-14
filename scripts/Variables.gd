@@ -1,6 +1,8 @@
 extends Node
 
 var introAudio = true
+var current_character = "eren"
+var characterList = ["eren", "jaw"]
 
 
 func _notification(what):
