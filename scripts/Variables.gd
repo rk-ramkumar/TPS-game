@@ -4,7 +4,7 @@ var introAudio = true
 var current_character = "eren"
 var characterList = ["eren", "jaw"]
 var currentMap
-
+var kills = 0
 
 func _notification(what):
 	var backRequest = what == NOTIFICATION_WM_WINDOW_FOCUS_OUT or what == NOTIFICATION_WM_GO_BACK_REQUEST
