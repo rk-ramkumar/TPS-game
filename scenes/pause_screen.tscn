@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/pause_screen.gd" id="1_jjheo"]
 
 [node name="PauseScreen" type="Control"]
-process_mode = 3
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,5 +55,13 @@ theme_override_font_sizes/font_size = 64
 text = "Main Menu"
 flat = true
 
+[node name="Quit" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+flat = true
+
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
