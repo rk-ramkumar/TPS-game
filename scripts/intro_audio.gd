@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-func _process(delta):
+func _process(_delta):
 	if Variables.introAudio:
 		if !is_playing():
 			play(Variables.introAudio)
