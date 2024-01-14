@@ -15,5 +15,6 @@ func _ready():
 func _update_kill_label(kill_count: String):
 	kill_label.text = kill_count
 
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+func _on_start_pressed():
+	var loading_screen = load("res://scenes/loading.tscn")
+	get_tree().change_scene_to_packed(loading_screen)

@@ -40,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Start" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -76,4 +76,4 @@ text = " 0"
 [node name="fantasy_island" parent="." instance=ExtResource("2_jd5y1")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, -5.7794)
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://cl7cwgqd2sehf"]
+
+[ext_resource type="Script" path="res://scripts/loading.gd" id="1_cexli"]
+[ext_resource type="Texture2D" uid="uid://6pt5ynol3jl5" path="res://assests/Images/loading.jpg" id="2_n6xjn"]
+[ext_resource type="Texture2D" uid="uid://bxaffg1bqa2jk" path="res://addons/proton_scatter/icons/loading/progress1.svg" id="3_ckn4j"]
+[ext_resource type="Texture2D" uid="uid://dt36cq4i6vxbp" path="res://addons/proton_scatter/icons/loading/progress2.svg" id="4_v6obm"]
+[ext_resource type="Texture2D" uid="uid://c0xe1mmwhexf3" path="res://addons/proton_scatter/icons/loading/progress3.svg" id="5_inreh"]
+[ext_resource type="Texture2D" uid="uid://b55ls3njsgrix" path="res://addons/proton_scatter/icons/loading/progress4.svg" id="6_1hbna"]
+[ext_resource type="Texture2D" uid="uid://fq4k4ug1df24" path="res://addons/proton_scatter/icons/loading/progress5.svg" id="7_ei1f4"]
+[ext_resource type="Texture2D" uid="uid://c2kqooswn03uj" path="res://addons/proton_scatter/icons/loading/progress6.svg" id="8_qovnl"]
+[ext_resource type="Texture2D" uid="uid://8wacu74d4d6s" path="res://addons/proton_scatter/icons/loading/progress7.svg" id="9_hd2ue"]
+[ext_resource type="Texture2D" uid="uid://boeljf8xa2s5d" path="res://addons/proton_scatter/icons/loading/progress8.svg" id="10_7gv2c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hkjck"]
+font_size = 64
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxbf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ckn4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v6obm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_inreh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1hbna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ei1f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qovnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hd2ue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7gv2c")
+}],
+"loop": true,
+"name": &"loading",
+"speed": 5.0
+}]
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cexli")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n6xjn")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -436.0
+offset_top = -76.0
+offset_right = -44.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "LOADING"
+label_settings = SubResource("LabelSettings_hkjck")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(568, 329)
+sprite_frames = SubResource("SpriteFrames_uxbf6")
+animation = &"loading"
+speed_scale = 10.0
