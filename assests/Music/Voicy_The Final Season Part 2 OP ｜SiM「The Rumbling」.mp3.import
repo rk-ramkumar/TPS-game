@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgljj3sulr3e2"
+path="res://.godot/imported/Voicy_The Final Season Part 2 OP ｜SiM「The Rumbling」.mp3-d3cff8c3ce6fc84b3c488d7db9b339a8.mp3str"
+
+[deps]
+
+source_file="res://assests/Music/Voicy_The Final Season Part 2 OP ｜SiM「The Rumbling」.mp3"
+dest_files=["res://.godot/imported/Voicy_The Final Season Part 2 OP ｜SiM「The Rumbling」.mp3-d3cff8c3ce6fc84b3c488d7db9b339a8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=8.0
+bpm=0.0
+beat_count=0
+bar_beats=4

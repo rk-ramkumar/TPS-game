@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Voicy_Attack On Titan Opening.mp3-e33bee76df4
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
