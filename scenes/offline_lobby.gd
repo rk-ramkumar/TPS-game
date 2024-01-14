@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var character = $Character
-@onready var kill_label = $Control/KillLabel
+@onready var kill_label = $UI/KillLabel
 
 func _ready():
 	Variables.currentMap = "survival"
