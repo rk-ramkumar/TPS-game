@@ -6,6 +6,5 @@ func _process(delta):
 			play(Variables.introAudio)
 	else:
 		if is_playing():
-			print(Variables.introAudio,'r')
 			stop()
 

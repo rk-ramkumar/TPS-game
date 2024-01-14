@@ -11,6 +11,8 @@ config_version=5
 [application]
 
 config/name="MAIN"
+run/main_scene="res://scenes/home_screen.tscn"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
