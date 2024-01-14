@@ -9,6 +9,7 @@ func _ready():
 	
 	var characterPath = "res://scenes/"+Variables.current_character+".tscn"
 	var character_instance = load(characterPath).instantiate()
+	character_instance.set_script("")
 	
 	character.add_child(character_instance)
 

@@ -1,25 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dttjthmmadrbg"]
+[gd_scene load_steps=3 format=3 uid="uid://dttjthmmadrbg"]
 
-[ext_resource type="Texture2D" uid="uid://cy2y8df5uepd1" path="res://assests/animeSky.hdr" id="1_eus5l"]
+[ext_resource type="PackedScene" uid="uid://m7o2nxlm5nf0" path="res://scenes/pause_screen.tscn" id="1_2anv5"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5158o"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eo3ws"]
-panorama = ExtResource("1_eus5l")
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_5158o")
 
-[sub_resource type="Sky" id="Sky_vis15"]
-sky_material = SubResource("PanoramaSkyMaterial_eo3ws")
+[node name="UI" type="CanvasLayer" parent="."]
 
-[sub_resource type="Environment" id="Environment_uanr6"]
-background_mode = 2
-sky = SubResource("Sky_vis15")
-fog_light_color = Color(0.270588, 0.294118, 0.333333, 1)
-fog_aerial_perspective = 0.084
-fog_sky_affect = 0.673
-
-[node name="Main" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_uanr6")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+[node name="PauseScreen" parent="UI" node_paths=PackedStringArray("game_manager") instance=ExtResource("1_2anv5")]
+game_manager = NodePath("../..")
+metadata/_edit_use_anchors_ = true
