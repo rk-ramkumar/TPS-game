@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cms6f8pu7ua4i"]
+
+[ext_resource type="AudioStream" uid="uid://bgljj3sulr3e2" path="res://assests/Music/Voicy_The Final Season Part 2 OP ｜SiM「The Rumbling」.mp3" id="1_88leg"]
+[ext_resource type="Script" path="res://scripts/intro_audio.gd" id="2_1icf7"]
+
+[node name="IntroAudio" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_88leg")
+volume_db = -18.05
+script = ExtResource("2_1icf7")

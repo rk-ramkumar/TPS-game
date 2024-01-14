@@ -14,6 +14,11 @@ config/name="MAIN"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+IntroAudio="*res://scenes/intro_audio.tscn"
+Variables="*res://scripts/Variables.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")

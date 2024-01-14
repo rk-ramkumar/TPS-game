@@ -1,25 +1,107 @@
-[gd_scene load_steps=2 format=3 uid="uid://7fx80j6elnss"]
+[gd_scene load_steps=5 format=3 uid="uid://7fx80j6elnss"]
 
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_6dmmm"]
-resource_local_to_scene = true
-file = "res://assests/Music/Intro.mp4"
+[ext_resource type="Script" path="res://scripts/IntroVideoPlayer.gd" id="1_74cng"]
+[ext_resource type="Script" path="res://scripts/home_screen.gd" id="1_bgx7y"]
 
-[node name="HomeScreen" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_j3gw8"]
+file = "res://assests/Music/Intro.ogg"
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhdlh"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="HomeScreen" type="Node"]
+script = ExtResource("1_bgx7y")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+anchors_preset = -1
+anchor_left = -0.5
+anchor_top = -0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = -1112.0
+offset_bottom = -608.0
+stream = SubResource("VideoStreamTheora_j3gw8")
+autoplay = true
+script = ExtResource("1_74cng")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = -0.502
+anchor_top = -0.481
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.30402
+offset_top = -15.312
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0.439216)
 
-[node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(1280, 720)
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = -0.494
+anchor_top = -0.491
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.0880127
+offset_top = -6.83197
+offset_right = -5.0
+grow_horizontal = 2
+text = "Atttack on titan"
+label_settings = SubResource("LabelSettings_mhdlh")
+horizontal_alignment = 1
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewport"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/SubViewportContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = -0.374
+anchor_top = -0.247
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.15198
+offset_top = -1.944
+offset_right = 4.0
+offset_bottom = -3.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-stream = SubResource("VideoStreamTheora_6dmmm")
-autoplay = true
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Play"
+flat = true
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Options"
+flat = true
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+flat = true
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
