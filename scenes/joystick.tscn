@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://762jt7hbxr58"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/joystick/virtual_joystick.tscn" id="1_jo7pw"]
+[ext_resource type="Script" path="res://scripts/joystick.gd" id="1_p63ly"]
+[ext_resource type="Texture2D" uid="uid://bs5lhjpcdtx13" path="res://assests/Images/jump-across.png" id="2_xcm3f"]
+[ext_resource type="Texture2D" uid="uid://byudew128vpqu" path="res://assests/Images/sprint.png" id="3_6lcco"]
+[ext_resource type="Texture2D" uid="uid://bafnr3lw7pf8d" path="res://assests/Images/punch.png" id="4_c17h6"]
+[ext_resource type="Texture2D" uid="uid://bnbahd64ggo4c" path="res://assests/Images/transportation-rings.png" id="5_uttra"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_332dy"]
+font_size = 30
+font_color = Color(1, 0.0470588, 0.0470588, 1)
+
+[node name="Joystick" type="CanvasLayer"]
+script = ExtResource("1_p63ly")
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("1_jo7pw")]
+action_left = "left"
+action_right = "right"
+action_up = "forward"
+action_down = "backward"
+
+[node name="Jump" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = 92.0
+offset_right = -81.0
+offset_bottom = 92.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Jump"]
+position = Vector2(-46, -104)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_xcm3f")
+action = "jump"
+
+[node name="Sprint" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.472
+anchor_bottom = 0.472
+offset_top = 0.159973
+offset_bottom = 0.159973
+grow_vertical = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Sprint"]
+position = Vector2(73, -44)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_6lcco")
+action = "sprint"
+
+[node name="Attack" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 0.684
+anchor_right = 1.0
+anchor_bottom = 0.684
+offset_left = -276.0
+offset_top = -28.48
+offset_right = -276.0
+offset_bottom = -28.48
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Attack"]
+position = Vector2(-32, -63)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("4_c17h6")
+action = "attack"
+
+[node name="Titan" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.741
+anchor_top = 1.0
+anchor_right = 0.741
+anchor_bottom = 1.0
+offset_left = -111.28
+offset_top = -69.0
+offset_right = 106.72
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Titan"]
+position = Vector2(49, -51)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("5_uttra")
+action = "titan"
+
+[node name="ColorRect" type="ColorRect" parent="Titan"]
+visible = false
+offset_left = 56.0
+offset_top = -46.0
+offset_right = 146.0
+offset_bottom = 44.0
+color = Color(1, 1, 1, 0.619608)
+
+[node name="Timer" type="Timer" parent="Titan"]
+wait_time = 180.0
+autostart = true
+
+[node name="Label" type="Label" parent="Titan"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.468
+anchor_top = 0.724
+anchor_right = 0.468
+anchor_bottom = 0.724
+offset_left = -20.024
+offset_top = -86.056
+offset_right = 5.976
+offset_bottom = -52.056
+text = "0"
+label_settings = SubResource("LabelSettings_332dy")
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Titan/Timer" to="." method="_on_timer_timeout"]
