@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dttjthmmadrbg"]
+[gd_scene load_steps=9 format=3 uid="uid://dttjthmmadrbg"]
 
 [ext_resource type="PackedScene" uid="uid://m7o2nxlm5nf0" path="res://scenes/pause_screen.tscn" id="1_2anv5"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5158o"]
 [ext_resource type="Texture2D" uid="uid://cy2y8df5uepd1" path="res://assests/animeSky.hdr" id="2_i7liu"]
 [ext_resource type="PackedScene" uid="uid://eemrmlnp2td2" path="res://scenes/map/survival.tscn" id="4_dj62i"]
-[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/joystick/virtual_joystick.tscn" id="4_kxvme"]
 [ext_resource type="PackedScene" uid="uid://brh0l2j3m5ebr" path="res://scenes/eren.tscn" id="5_plr7s"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_akbpf"]
@@ -37,12 +36,6 @@ shadow_enabled = true
 
 [node name="PauseScreen" parent="UI" node_paths=PackedStringArray("game_manager") instance=ExtResource("1_2anv5")]
 game_manager = NodePath("../..")
-
-[node name="Virtual JoystickLeft" parent="UI" instance=ExtResource("4_kxvme")]
-action_left = "left"
-action_right = "right"
-action_up = "forward"
-action_down = "baa"
 
 [node name="Survival" parent="." instance=ExtResource("4_dj62i")]
 process_mode = 1

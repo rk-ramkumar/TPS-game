@@ -8,82 +8,74 @@ file = "res://assests/Music/Intro.ogg"
 
 [sub_resource type="LabelSettings" id="LabelSettings_mhdlh"]
 font_size = 64
-font_color = Color(0, 0, 0, 1)
+font_color = Color(1, 0, 0, 1)
 
 [node name="HomeScreen" type="Node"]
 script = ExtResource("1_bgx7y")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-anchors_preset = -1
-anchor_left = -0.5
-anchor_top = -0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = -1112.0
-offset_bottom = -608.0
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = SubResource("VideoStreamTheora_j3gw8")
 autoplay = true
 script = ExtResource("1_74cng")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = -1
-anchor_left = -0.502
-anchor_top = -0.481
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 2.30402
-offset_top = -15.312
-offset_bottom = -3.0
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.439216)
+color = Color(0.0823529, 0.0823529, 0.0823529, 0.686275)
 
-[node name="PlayOptionsBg" type="ColorRect" parent="."]
+[node name="PlayOptionsBg" type="ColorRect" parent="UI"]
 visible = false
-anchors_preset = -1
-anchor_left = -0.116
-anchor_top = -0.285
-anchor_right = 0.266
-anchor_bottom = -0.048
-offset_left = -0.367996
-offset_top = -0.319977
-offset_right = -0.368042
-offset_bottom = -0.320011
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.12549, 0.12549, 0.12549, 0.439216)
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = -1
-anchor_left = -0.494
-anchor_top = -0.491
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 0.0880127
-offset_top = -6.83197
-offset_right = -5.0
+[node name="Label" type="Label" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 text = "Atttack on titan"
 label_settings = SubResource("LabelSettings_mhdlh")
 horizontal_alignment = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 300
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = -1
-anchor_left = -0.374
-anchor_top = -0.247
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -7.15198
-offset_top = -1.944
-offset_right = 4.0
-offset_bottom = -3.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -94,7 +86,7 @@ flat = true
 alignment = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -105,7 +97,7 @@ flat = true
 alignment = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -116,14 +108,14 @@ flat = true
 alignment = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 30
 
-[node name="Online" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Online" type="Button" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -132,7 +124,7 @@ theme_override_font_sizes/font_size = 64
 text = "Online"
 flat = true
 
-[node name="Local" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Local" type="Button" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -141,9 +133,9 @@ theme_override_font_sizes/font_size = 64
 text = "Local"
 flat = true
 
-[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Online" to="." method="_on_online_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Local" to="." method="_on_local_pressed"]
+[connection signal="finished" from="UI/Control/VideoStreamPlayer" to="UI/Control/VideoStreamPlayer" method="_on_finished"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Online" to="." method="_on_online_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Local" to="." method="_on_local_pressed"]

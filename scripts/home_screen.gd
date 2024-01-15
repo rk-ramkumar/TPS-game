@@ -1,7 +1,7 @@
 extends Node
 
-@onready var play_options_bg = $PlayOptionsBg
-@onready var h_box_container = $MarginContainer/HBoxContainer
+@onready var h_box_container = $UI/MarginContainer/HBoxContainer
+@onready var play_options_bg = $UI/PlayOptionsBg
 
 func _on_quit_pressed():
 	get_tree().quit()
