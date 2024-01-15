@@ -5,7 +5,7 @@ var scene_name
 var scene_status
 
 func _ready():
-	scene_name = "res://scenes/map/"+Variables.currentMap+".tscn"
+	scene_name = "res://scenes/main.tscn"
 	ResourceLoader.load_threaded_request(scene_name)
 
 func _process(_delta):

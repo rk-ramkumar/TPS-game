@@ -16,6 +16,7 @@ func _on_resume_pressed():
 	game_manager.game_paused = false
 
 func _on_main_menu_pressed():
+	game_manager.game_paused = false
 	get_tree().change_scene_to_file("res://scenes/home_screen.tscn")
 
 func _on_quit_pressed():

@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var pivot = $Pivot
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -7,7 +8,17 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+const mouse_sen = 0.3
 
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(-event.relative.x * mouse_sen))
+		pivot.rotate_x(deg_to_rad(-event.relative.y * mouse_sen))
+		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-10), deg_to_rad(80))
+		
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

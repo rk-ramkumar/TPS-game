@@ -22,6 +22,7 @@ action_down = "backward"
 
 [node name="Jump" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -94,6 +95,7 @@ action = "titan"
 
 [node name="ColorRect" type="ColorRect" parent="Titan"]
 visible = false
+layout_mode = 0
 offset_left = 56.0
 offset_top = -46.0
 offset_right = 146.0

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://m7o2nxlm5nf0" path="res://scenes/pause_screen.tscn" id="1_2anv5"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5158o"]
 [ext_resource type="Texture2D" uid="uid://cy2y8df5uepd1" path="res://assests/animeSky.hdr" id="2_i7liu"]
-[ext_resource type="PackedScene" uid="uid://eemrmlnp2td2" path="res://scenes/map/survival.tscn" id="4_dj62i"]
+[ext_resource type="PackedScene" uid="uid://762jt7hbxr58" path="res://scenes/joystick.tscn" id="4_y4a6l"]
 [ext_resource type="PackedScene" uid="uid://brh0l2j3m5ebr" path="res://scenes/eren.tscn" id="5_plr7s"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_akbpf"]
@@ -29,18 +29,22 @@ script = ExtResource("1_5158o")
 environment = SubResource("Environment_4xp6h")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="."]
+process_mode = 1
 
 [node name="PauseScreen" parent="UI" node_paths=PackedStringArray("game_manager") instance=ExtResource("1_2anv5")]
 game_manager = NodePath("../..")
 
-[node name="Survival" parent="." instance=ExtResource("4_dj62i")]
-process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.77699, 0)
+[node name="Joystick" parent="UI" instance=ExtResource("4_y4a6l")]
 
 [node name="Eren" parent="." instance=ExtResource("5_plr7s")]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396463, -1.21068)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39646, -1.21068)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+cast_shadow = 0
+use_collision = true
+size = Vector3(50, 1, 50)
