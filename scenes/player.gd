@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var pivot = $Pivot
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $visuals
+@onready var animation_tree = $AnimationTree
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -52,15 +53,16 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerpSpeed)
+	
 	if direction:
-
+		animation_tree.set("parameters/conditions/walk", true)
+		
 		visuals.look_at(position + direction)
 		velocity.x = direction.x * currentSpeed
 		velocity.z = direction.z * currentSpeed
 	else:
-		if animation_player.current_animation != "Idle":
-			animation_player.play("Idle")
-			
+		animation_tree.set("parameters/conditions/idle", true)
+		
 		velocity.x = move_toward(velocity.x, 0, currentSpeed)
 		velocity.z = move_toward(velocity.z, 0, currentSpeed)
 
