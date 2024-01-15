@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bomjdp1uapabu"]
+
+[ext_resource type="Texture2D" uid="uid://c6jdihbt387l" path="res://assests/Models/TitansTexture/aot_-_eren_yeager_s4_default_3d_model_1.png" id="1_dghjn"]
+
+[resource]
+albedo_texture = ExtResource("1_dghjn")
