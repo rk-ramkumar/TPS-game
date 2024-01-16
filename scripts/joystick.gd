@@ -27,4 +27,5 @@ func _update_remaining_time():
 func _on_timer_timeout():
 	can_change_titan = true
 	touch_screen_button.set_modulate(Color.WHITE)
+	touch_screen_button.action = "titan"
 	label.hide()
