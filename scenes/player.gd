@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var pivot = $Pivot
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $visuals
+@onready var camera_3d = $Pivot/SpringArm3D/Camera3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -31,6 +32,7 @@ var is_sprint: bool = false
 
 func _ready():
 	cur_state = states.IDLE
+	camera_3d.set_current(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -64,7 +66,6 @@ func _physics_process(delta):
 	
 	# Handle attack idle
 	if Input.is_action_just_pressed("attack"):
-		print("Sr")
 		cur_state = states.ATTACKIDLE
 
 	# Changing the state.
@@ -73,7 +74,6 @@ func _physics_process(delta):
 			cur_state = states.WALK
 		else:
 			var is_attack = cur_state != states.ATTACK and cur_state != states.ATTACKIDLE
-			print(is_attack)
 			if is_attack:
 				cur_state = states.IDLE
 			else:
