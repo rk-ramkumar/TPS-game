@@ -13,4 +13,5 @@ func take_damage(amount):
 
 	# Check if health is zero or below
 	if current_health <= 0:
+		print("died")
 		emit_signal("died")

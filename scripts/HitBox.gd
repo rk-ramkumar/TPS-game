@@ -1,6 +1,6 @@
 class_name HitBox extends Area3D
 
-@export var hit_damage: int = 20
+@export var hit_damage: int = 80
 
 func _init():
 	collision_layer = 2

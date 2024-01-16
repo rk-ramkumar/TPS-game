@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dttjthmmadrbg"]
+[gd_scene load_steps=12 format=3 uid="uid://dttjthmmadrbg"]
 
 [ext_resource type="PackedScene" uid="uid://m7o2nxlm5nf0" path="res://scenes/pause_screen.tscn" id="1_2anv5"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5158o"]
 [ext_resource type="Texture2D" uid="uid://cy2y8df5uepd1" path="res://assests/animeSky.hdr" id="2_i7liu"]
+[ext_resource type="Script" path="res://scripts/HealthProgressBar.gd" id="4_vppfe"]
 [ext_resource type="PackedScene" uid="uid://762jt7hbxr58" path="res://scenes/joystick.tscn" id="4_y4a6l"]
-[ext_resource type="PackedScene" uid="uid://djjnw541hhns3" path="res://scenes/jaw.tscn" id="5_cc3i8"]
-[ext_resource type="PackedScene" uid="uid://brh0l2j3m5ebr" path="res://scenes/eren.tscn" id="5_plr7s"]
-[ext_resource type="Script" path="res://scripts/enemie.gd" id="6_2n327"]
+[ext_resource type="PackedScene" uid="uid://byd415bgc5uux" path="res://scenes/game_over.tscn" id="5_5dad6"]
+[ext_resource type="PackedScene" uid="uid://eemrmlnp2td2" path="res://scenes/map/survival.tscn" id="6_abywf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_akbpf"]
 panorama = ExtResource("2_i7liu")
@@ -23,17 +23,18 @@ fog_enabled = true
 fog_density = 0.0411
 fog_sky_affect = 0.311
 
-[node name="Main" type="Node"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bqe6"]
+bg_color = Color(1, 0, 0, 1)
+border_blend = true
+
+[node name="Main" type="Node" node_paths=PackedStringArray("map", "game_over")]
 process_mode = 3
 script = ExtResource("1_5158o")
+map = NodePath("Survival")
+game_over = NodePath("UI/GameOver")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4xp6h")
-
-[node name="Survival@NavigationRegion3D@Jaw" parent="." instance=ExtResource("5_cc3i8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05725, 4.99046, 2.22506)
-script = ExtResource("6_2n327")
-player_path = NodePath("../../../Eren")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -42,11 +43,39 @@ shadow_enabled = true
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 1
 
+[node name="Joystick" parent="UI" instance=ExtResource("4_y4a6l")]
+
+[node name="HealthProgressBar" type="ProgressBar" parent="UI" node_paths=PackedStringArray("health")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -44.0
+offset_right = 98.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_2bqe6")
+rounded = true
+script = ExtResource("4_vppfe")
+health = NodePath("../../Survival/Eren/Health")
+
+[node name="GameOver" parent="UI" instance=ExtResource("5_5dad6")]
+
 [node name="PauseScreen" parent="UI" node_paths=PackedStringArray("game_manager") instance=ExtResource("1_2anv5")]
 game_manager = NodePath("../..")
 
-[node name="Joystick" parent="UI" instance=ExtResource("4_y4a6l")]
+[node name="Survival" parent="." instance=ExtResource("6_abywf")]
 
-[node name="Eren" parent="." instance=ExtResource("5_plr7s")]
-process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22398, 0)
+[node name="Jaw" parent="Survival/Map/NavigationRegion3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266004, 5.05351, -4.1352)
+
+[node name="Eren" parent="Survival" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.20652, -0.657434)
+
+[editable path="Survival"]
+[editable path="Survival/Map/NavigationRegion3D/Jaw"]
+[editable path="Survival/Eren"]

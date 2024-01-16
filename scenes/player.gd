@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $visuals
 @onready var camera_3d = $Pivot/SpringArm3D/Camera3D
+@onready var health = $Health
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -13,7 +14,9 @@ enum states {
 	ATTACK,
 	WALK,
 	JUMP,
-	ATTACKIDLE
+	ATTACKIDLE,
+	HIT,
+	DIED
 }
 var cur_state
 var currentSpeed = 5.0
@@ -28,11 +31,13 @@ const lerpSpeed = 15.0
 var direction = Vector3.ZERO
 const mouse_sen = 0.3
 var is_sprint: bool = false
-
+var kill_count: int = 0
 
 func _ready():
 	cur_state = states.IDLE
 	camera_3d.set_current(true)
+	health.connect("damage_recieve", _on_damage_recieve)
+	health.connect("died", _on_died)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -84,7 +89,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("attack"):
 		cur_state = states.ATTACK 
 
-	_handle_animation()
+	_handle_animation(cur_state)
 	direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerpSpeed)
 	
 	# Rotate the model to direction taht move.
@@ -102,9 +107,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-
-func _handle_animation():
-	match cur_state:
+func _handle_animation(state: states):
+	match state:
 		states.IDLE:
 			_play_anim("Idle")
 		states.ATTACK:
@@ -115,7 +119,23 @@ func _handle_animation():
 			_play_anim("WalkForward")
 		states.ATTACKIDLE:
 			_play_anim("FightIdle")
+		states.HIT:
+			_play_anim("IdleHit")
+		states.DIED:
+			_play_anim("Dying")
 
 func _play_anim(anim: String):
 	if animation_player.current_animation != anim:
 		animation_player.play(anim)
+
+func _on_damage_recieve():
+	_handle_animation(states.HIT)
+
+func _on_died():
+	set_physics_process(false)
+	_handle_animation(states.DIED)
+	
+	if cur_state != states.DIED:
+		owner.owner._game_over(kill_count)
+
+	cur_state = states.DIED
