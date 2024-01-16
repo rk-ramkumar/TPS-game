@@ -86,4 +86,3 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 renderer/rendering_method="mobile"
-occlusion_culling/use_occlusion_culling=true
