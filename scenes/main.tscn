@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dttjthmmadrbg"]
+[gd_scene load_steps=11 format=3 uid="uid://dttjthmmadrbg"]
 
 [ext_resource type="PackedScene" uid="uid://m7o2nxlm5nf0" path="res://scenes/pause_screen.tscn" id="1_2anv5"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5158o"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://djjnw541hhns3" path="res://scenes/jaw.tscn" id="5_cc3i8"]
 [ext_resource type="PackedScene" uid="uid://brh0l2j3m5ebr" path="res://scenes/eren.tscn" id="5_plr7s"]
 [ext_resource type="Script" path="res://scripts/enemie.gd" id="6_2n327"]
-[ext_resource type="PackedScene" uid="uid://eemrmlnp2td2" path="res://scenes/map/survival.tscn" id="6_7poss"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_akbpf"]
 panorama = ExtResource("2_i7liu")
@@ -31,6 +30,11 @@ script = ExtResource("1_5158o")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4xp6h")
 
+[node name="Survival@NavigationRegion3D@Jaw" parent="." instance=ExtResource("5_cc3i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05725, 4.99046, 2.22506)
+script = ExtResource("6_2n327")
+player_path = NodePath("../../../Eren")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
@@ -46,13 +50,3 @@ game_manager = NodePath("../..")
 [node name="Eren" parent="." instance=ExtResource("5_plr7s")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22398, 0)
-
-[node name="Survival" parent="." instance=ExtResource("6_7poss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.02966, 0)
-
-[node name="Jaw" parent="Survival/NavigationRegion3D" index="1" instance=ExtResource("5_cc3i8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05725, 4.99046, 2.22506)
-script = ExtResource("6_2n327")
-player_path = NodePath("../../../Eren")
-
-[editable path="Survival"]
