@@ -10,3 +10,7 @@ func _on_check_button_toggled(button_pressed):
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/home_screen.tscn")
+
+
+func _on_save_pressed():
+	Variables.save_data()

@@ -59,6 +59,27 @@ game_manager = NodePath("../..")
 
 [node name="Survival" parent="." instance=ExtResource("6_abywf")]
 
+[node name="LargeRock" parent="Survival/Map/NavigationRegion3D/Ground/River/large_rock" index="0"]
+surface_material_override/0 = null
+
+[node name="LargeRock2" parent="Survival/Map/NavigationRegion3D/Ground/River/large_rock" index="1"]
+surface_material_override/0 = null
+
+[node name="LargeRock3" parent="Survival/Map/NavigationRegion3D/Ground/River/large_rock" index="2"]
+surface_material_override/0 = null
+
+[node name="fence_planks2" parent="Survival/Map/NavigationRegion3D/Ground/Bridge/fence_planks" index="0"]
+surface_material_override/0 = null
+
+[node name="fence_planks2" parent="Survival/Map/NavigationRegion3D/Ground/Bridge/fence_planks2" index="0"]
+surface_material_override/0 = null
+
+[node name="fence_planks2" parent="Survival/Map/NavigationRegion3D/Ground/Bridge/fence_planks3" index="0"]
+surface_material_override/0 = null
+
+[node name="fence_planks2" parent="Survival/Map/NavigationRegion3D/Ground/Bridge/fence_planks4" index="0"]
+surface_material_override/0 = null
+
 [node name="Jaw" parent="Survival/Map/NavigationRegion3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266004, 5.05351, -4.1352)
 
@@ -122,8 +143,18 @@ shape = SubResource("CapsuleShape3D_4ioln")
 [node name="CollisionShape3D" parent="Survival/Map/NavigationRegion3D/Jaw/HurtBox" index="0"]
 shape = SubResource("CapsuleShape3D_cicd4")
 
+[node name="Trunk" parent="Survival/Map/Forest/pine_tree" index="0"]
+surface_material_override/0 = null
+
+[node name="Leaves" parent="Survival/Map/Forest/pine_tree" index="1"]
+surface_material_override/0 = null
+
 [node name="Eren" parent="Survival" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.20652, -0.657434)
+game_manager = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":3,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("1_5158o"),"map":Object(Node3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":1,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":null)
+,"game_over":Object(CanvasLayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":3,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","layer":1,"visible":true,"offset":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"transform":Transform2D(1, 0, 0, 1, 0, 0),"follow_viewport_enabled":false,"follow_viewport_scale":1.0,"script":Resource("res://scripts/game_over.gd"))
+)
+
 
 [editable path="Survival"]
 [editable path="Survival/Map/NavigationRegion3D/Jaw"]

@@ -9,7 +9,7 @@ func _ready():
 	ResourceLoader.load_threaded_request(scene_name)
 
 func _process(_delta):
-	animated_sprite_2d.play("loading")	
+	animated_sprite_2d.play("loading")
 	scene_status = ResourceLoader.load_threaded_get_status(scene_name, [])
 	
 	if scene_status == ResourceLoader.THREAD_LOAD_LOADED:

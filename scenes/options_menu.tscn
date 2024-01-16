@@ -48,7 +48,15 @@ theme_override_font_sizes/font_size = 64
 text = "Intro Audio"
 flat = true
 
-[node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Save" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Save"
+flat = true
+icon_alignment = 1
+
+[node name="Main Menu" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
@@ -56,4 +64,5 @@ text = "Main Menu"
 flat = true
 
 [connection signal="toggled" from="MarginContainer/CenterContainer/VBoxContainer/IntroAudio" to="." method="_on_check_button_toggled"]
-[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Main Menu" to="." method="_on_button_pressed"]

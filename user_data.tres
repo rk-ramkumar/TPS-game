@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UserManager" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/UserManager.gd" id="1_m5qyp"]
+
+[resource]
+script = ExtResource("1_m5qyp")
+introAudio = false
+kills = 1

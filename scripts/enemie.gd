@@ -30,8 +30,8 @@ func _ready():
 	cur_state = states.ROAR
 	_handle_animation(cur_state)
 	player = get_node(player_path)
-	health.connect("damage_recieve", _on_damage_recieve)
-	player.connect("died", _on_player_died)
+	health.damage_recieve.connect( _on_damage_recieve)
+	player.died.connect(_on_player_died)
 
 func _process(delta):
 	velocity = Vector3.ZERO
@@ -85,18 +85,16 @@ func _on_damage_recieve():
 	
 	# Check if health is zero or below
 	if health.current_health <= 0:
-		print("enemy died")
 		set_process(false)
-		emit_signal("died")
 		_on_died()
 
 func _on_died():
 	set_physics_process(false)
 	_handle_animation(states.DIED)
+	player.update_kill_count()
 	
 	if cur_state != states.DIED:
 		# Wait for 3s to finish the dying animation
 		await get_tree().create_timer(3.0).timeout
 		queue_free()
-		player.update_kill_count()
 

@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var camera_3d = $Pivot/SpringArm3D/Camera3D
 @onready var health = $Health
 @onready var blood_particle = $BloodParticle
+@export var game_manager: GameManager
 
 signal died
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -33,12 +34,11 @@ const lerpSpeed = 15.0
 var direction = Vector3.ZERO
 const mouse_sen = 0.3
 var is_sprint: bool = false
-var kill_count: int = 0
 
 func _ready():
 	cur_state = states.IDLE
 	camera_3d.set_current(true)
-	health.connect("damage_recieve", _on_damage_recieve)
+	health.damage_recieve.connect( _on_damage_recieve)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -135,7 +135,7 @@ func _on_damage_recieve():
 	
 	# Check if health is zero or below
 	if health.current_health <= 0:
-		emit_signal("died")
+		died.emit()
 		_on_died()
 
 func _on_died():
@@ -145,7 +145,7 @@ func _on_died():
 	if cur_state != states.DIED:
 		# Wait for 3s to finish the dying animation
 		await get_tree().create_timer(3.0).timeout
-		owner.owner._game_over(kill_count)
+		game_manager._game_over()
 
 func update_kill_count():
-	kill_count += 1
+	game_manager.player_killed += 1
