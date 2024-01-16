@@ -38,7 +38,7 @@ func _game_over(kill_count: int):
 	
 	game_over.get_node("CenterContainer/VBoxContainer/SurvivalTime").text = str(survival_time) + " s"
 	game_over.get_node("CenterContainer/VBoxContainer/Kills").text ="Kills: " + str(kill_count)
-	game_over.get_node("$BestKills").text = "Best Kills:  " + str(Variables.kills)
+	game_over.get_node("BestKills").text = "Best Kills:  " + str(Variables.kills)
 
 	remove_child(map)
 	game_over.show()

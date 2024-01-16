@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var visuals = $visuals
 @onready var camera_3d = $Pivot/SpringArm3D/Camera3D
 @onready var health = $Health
+@onready var blood_particle = $BloodParticle
 
 signal died
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -130,6 +131,7 @@ func _play_anim(anim: String):
 
 func _on_damage_recieve():
 	_handle_animation(states.HIT)
+	blood_particle.set_emitting(true)
 	
 	# Check if health is zero or below
 	if health.current_health <= 0:
