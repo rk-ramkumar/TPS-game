@@ -1,7 +1,7 @@
 class_name Health extends Node
 
 @export var max_health : int = 100
-@export var current_health : int = max_health
+@export  var current_health : int = max_health
 
 signal damage_recieve
 

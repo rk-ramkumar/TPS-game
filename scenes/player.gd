@@ -146,3 +146,6 @@ func _on_died():
 		# Wait for 3s to finish the dying animation
 		await get_tree().create_timer(3.0).timeout
 		owner.owner._game_over(kill_count)
+
+func update_kill_count():
+	kill_count += 1

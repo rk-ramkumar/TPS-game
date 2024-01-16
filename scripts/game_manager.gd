@@ -5,6 +5,7 @@ signal toggle_game_paused(is_paused: bool)
 @export var game_over: CanvasLayer
 
 var start_time : float = 0.0
+var is_game_over: bool = false
 
 var game_paused: bool = false:
 	get:
@@ -16,6 +17,7 @@ var game_paused: bool = false:
 
 func _ready():
 	start_time = Time.get_ticks_msec()
+	game_over.hide()
 
 func _notification(what):
 	var backRequest = what == NOTIFICATION_WM_WINDOW_FOCUS_OUT or what == NOTIFICATION_WM_GO_BACK_REQUEST
@@ -24,11 +26,12 @@ func _notification(what):
 		game_paused = true
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and !is_game_over:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		notification.call(NOTIFICATION_WM_GO_BACK_REQUEST)
 
 func _game_over(kill_count: int):
+	is_game_over = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if kill_count > Variables.kills:

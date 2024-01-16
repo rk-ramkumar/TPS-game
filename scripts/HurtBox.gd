@@ -11,4 +11,5 @@ func _ready():
 
 func _on_area_entered(hitBox: HitBox):
 	if hitBox:
+		print(hitBox.owner,owner, hitBox.hit_damage, health.max_health, health.current_health)
 		health.take_damage(hitBox.hit_damage)

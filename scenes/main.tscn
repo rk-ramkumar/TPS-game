@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dttjthmmadrbg"]
+[gd_scene load_steps=13 format=3 uid="uid://dttjthmmadrbg"]
 
 [ext_resource type="PackedScene" uid="uid://m7o2nxlm5nf0" path="res://scenes/pause_screen.tscn" id="1_2anv5"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5158o"]
 [ext_resource type="Texture2D" uid="uid://cy2y8df5uepd1" path="res://assests/animeSky.hdr" id="2_i7liu"]
-[ext_resource type="Script" path="res://scripts/HealthProgressBar.gd" id="4_vppfe"]
+[ext_resource type="PackedScene" uid="uid://bdiuwp38j1j6s" path="res://scenes/health_progress_bar.tscn" id="4_k3kk2"]
 [ext_resource type="PackedScene" uid="uid://762jt7hbxr58" path="res://scenes/joystick.tscn" id="4_y4a6l"]
 [ext_resource type="PackedScene" uid="uid://byd415bgc5uux" path="res://scenes/game_over.tscn" id="5_5dad6"]
 [ext_resource type="PackedScene" uid="uid://eemrmlnp2td2" path="res://scenes/map/survival.tscn" id="6_abywf"]
@@ -23,9 +23,13 @@ fog_enabled = true
 fog_density = 0.0411
 fog_sky_affect = 0.311
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bqe6"]
-bg_color = Color(1, 0, 0, 1)
-border_blend = true
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ioln"]
+radius = 0.284108
+height = 0.861221
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cicd4"]
+radius = 0.134588
+height = 0.953788
 
 [node name="Main" type="Node" node_paths=PackedStringArray("map", "game_over")]
 process_mode = 3
@@ -45,22 +49,7 @@ process_mode = 1
 
 [node name="Joystick" parent="UI" instance=ExtResource("4_y4a6l")]
 
-[node name="HealthProgressBar" type="ProgressBar" parent="UI" node_paths=PackedStringArray("health")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -102.0
-offset_top = -44.0
-offset_right = 98.0
-offset_bottom = -14.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/outline_size = 0
-theme_override_styles/fill = SubResource("StyleBoxFlat_2bqe6")
-rounded = true
-script = ExtResource("4_vppfe")
+[node name="HealthProgressBar" parent="UI" node_paths=PackedStringArray("health") instance=ExtResource("4_k3kk2")]
 health = NodePath("../../Survival/Eren/Health")
 
 [node name="GameOver" parent="UI" instance=ExtResource("5_5dad6")]
@@ -72,6 +61,66 @@ game_manager = NodePath("../..")
 
 [node name="Jaw" parent="Survival/Map/NavigationRegion3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266004, 5.05351, -4.1352)
+
+[node name="Skeleton3D" parent="Survival/Map/NavigationRegion3D/Jaw/visuals/Node3D/Armature" index="0"]
+bones/0/position = Vector3(0.121607, -0.556616, -17.8545)
+bones/0/rotation = Quaternion(-0.6223, -0.128121, 0.104431, 0.765128)
+bones/1/rotation = Quaternion(0.0517568, -0.00522813, 0.0195813, 0.998454)
+bones/2/rotation = Quaternion(0.0640055, -0.0104735, 0.012388, 0.997818)
+bones/3/rotation = Quaternion(0.0641051, -0.00948715, 0.0126601, 0.997818)
+bones/4/rotation = Quaternion(-0.0787445, 0.0278853, -0.0232925, 0.996233)
+bones/5/rotation = Quaternion(-0.197645, 0.122889, -0.0350333, 0.971909)
+bones/7/rotation = Quaternion(0.579544, 0.396397, -0.608446, 0.369853)
+bones/8/rotation = Quaternion(0.370502, 0.039007, 0.189729, 0.90841)
+bones/9/rotation = Quaternion(-0.0669559, 0.0289575, 0.679557, 0.729987)
+bones/10/rotation = Quaternion(-0.258861, 0.105512, -0.0306077, 0.959646)
+bones/12/rotation = Quaternion(0.0712584, -0.0368886, -0.206625, 0.975124)
+bones/13/rotation = Quaternion(0.00429512, -0.0298166, -0.100065, 0.994525)
+bones/15/rotation = Quaternion(0.314999, 0.0135697, -0.0181559, 0.948821)
+bones/16/rotation = Quaternion(0.246556, -0.00256979, -0.0308074, 0.968636)
+bones/17/rotation = Quaternion(-0.0212775, -0.0032106, -0.0115814, 0.999701)
+bones/19/rotation = Quaternion(0.317136, -0.00662775, -0.0523839, 0.946909)
+bones/20/rotation = Quaternion(0.231131, -0.0106831, -0.030998, 0.97237)
+bones/21/rotation = Quaternion(0.0866029, -0.00687654, -0.0183635, 0.99605)
+bones/23/rotation = Quaternion(0.313106, -0.0223381, -0.11497, 0.942469)
+bones/24/rotation = Quaternion(0.218422, -0.0067579, -0.030718, 0.975347)
+bones/25/rotation = Quaternion(0.0787822, -0.00424296, -0.0165893, 0.996745)
+bones/27/rotation = Quaternion(0.281263, -0.0359838, -0.164411, 0.944757)
+bones/28/rotation = Quaternion(0.251894, -0.00482484, -0.0330348, 0.967179)
+bones/29/rotation = Quaternion(-0.0133135, -0.00382973, -0.0109457, 0.999844)
+bones/31/rotation = Quaternion(0.625716, -0.377486, 0.546592, 0.408926)
+bones/32/rotation = Quaternion(0.434124, 0.0292496, -0.213037, 0.874812)
+bones/33/rotation = Quaternion(-0.0741607, -0.0369861, -0.706506, 0.702838)
+bones/34/rotation = Quaternion(-0.00748769, -0.14026, -0.00500456, 0.990074)
+bones/35/rotation = Quaternion(0.239736, -0.105101, -0.413443, 0.872092)
+bones/36/rotation = Quaternion(0.0470144, 0.040898, 0.199458, 0.977923)
+bones/37/rotation = Quaternion(-0.00870891, 0.0299723, 0.0983494, 0.994662)
+bones/39/rotation = Quaternion(0.328318, -0.0141936, 0.0221943, 0.9442)
+bones/40/rotation = Quaternion(0.235938, 0.00290945, 0.0309782, 0.97127)
+bones/41/rotation = Quaternion(-0.0237059, 0.00332987, 0.0115247, 0.999647)
+bones/43/rotation = Quaternion(0.323038, 0.00654242, 0.0500774, 0.945038)
+bones/44/rotation = Quaternion(0.224617, 0.0108915, 0.0310894, 0.97389)
+bones/45/rotation = Quaternion(0.104367, 0.00664713, 0.01858, 0.994343)
+bones/47/rotation = Quaternion(0.314658, 0.0260824, 0.123386, 0.94079)
+bones/48/rotation = Quaternion(0.209707, 0.00691792, 0.0307428, 0.977256)
+bones/49/rotation = Quaternion(0.0705436, 0.0043777, 0.0166744, 0.99736)
+bones/51/rotation = Quaternion(0.293025, 0.0368517, 0.167438, 0.940608)
+bones/52/rotation = Quaternion(0.224703, 0.00548869, 0.0337823, 0.973826)
+bones/53/rotation = Quaternion(0.00643529, 0.00372089, 0.0114454, 0.999907)
+bones/55/rotation = Quaternion(-0.139961, -0.385262, -0.893486, 0.183488)
+bones/56/rotation = Quaternion(-0.389069, -0.0568429, 0.0238454, 0.919144)
+bones/57/rotation = Quaternion(0.493584, -0.0338866, -0.162726, 0.853667)
+bones/58/rotation = Quaternion(0.318391, 0.0309458, -0.00917828, 0.94741)
+bones/60/rotation = Quaternion(-0.131014, 0.345207, 0.922503, 0.112498)
+bones/61/rotation = Quaternion(-0.40962, 0.0664211, -0.0277538, 0.909412)
+bones/62/rotation = Quaternion(0.536065, 0.0210919, 0.142205, 0.831846)
+bones/63/rotation = Quaternion(0.316881, -0.0309618, 0.0102214, 0.947905)
+
+[node name="CollisionShape3D" parent="Survival/Map/NavigationRegion3D/Jaw/HitBox" index="0"]
+shape = SubResource("CapsuleShape3D_4ioln")
+
+[node name="CollisionShape3D" parent="Survival/Map/NavigationRegion3D/Jaw/HurtBox" index="0"]
+shape = SubResource("CapsuleShape3D_cicd4")
 
 [node name="Eren" parent="Survival" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.20652, -0.657434)
