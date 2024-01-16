@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var camera_3d = $Pivot/SpringArm3D/Camera3D
 @onready var health = $Health
 
+signal died
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -37,7 +38,6 @@ func _ready():
 	cur_state = states.IDLE
 	camera_3d.set_current(true)
 	health.connect("damage_recieve", _on_damage_recieve)
-	health.connect("died", _on_died)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -130,12 +130,17 @@ func _play_anim(anim: String):
 
 func _on_damage_recieve():
 	_handle_animation(states.HIT)
+	
+	# Check if health is zero or below
+	if health.current_health <= 0:
+		emit_signal("died")
+		_on_died()
 
 func _on_died():
 	set_physics_process(false)
 	_handle_animation(states.DIED)
 	
 	if cur_state != states.DIED:
+		# Wait for 3s to finish the dying animation
+		await get_tree().create_timer(3.0).timeout
 		owner.owner._game_over(kill_count)
-
-	cur_state = states.DIED

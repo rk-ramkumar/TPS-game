@@ -29,12 +29,11 @@ func _input(event):
 		notification.call(NOTIFICATION_WM_GO_BACK_REQUEST)
 
 func _game_over(kill_count: int):
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	var survival_time = round((Time.get_ticks_msec() - start_time) / 1000.0)
 	game_over.get_node("CenterContainer/VBoxContainer/SurvivalTime").text = str(survival_time) + " s"
 	game_over.get_node("CenterContainer/VBoxContainer/Kills").text ="Kills: " + str(kill_count)
-	# Wait for 3s to finish the dying animation
-	await get_tree().create_timer(3.0).timeout
+
 	remove_child(map)
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 	game_over.show()

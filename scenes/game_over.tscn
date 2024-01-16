@@ -9,7 +9,7 @@ font_color = Color(0.870387, 1.44392e-06, 1.2514e-06, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5gatd"]
 font_size = 64
-font_color = Color(1, 0, 0, 0)
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ebpq0"]
 font_size = 64
@@ -64,13 +64,14 @@ horizontal_alignment = 1
 
 [node name="SurvivalTime" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "ggdgfgv"
 label_settings = SubResource("LabelSettings_ws0q4")
 horizontal_alignment = 1
 
 [node name="Kills" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_5gatd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayAgain" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

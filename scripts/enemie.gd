@@ -25,6 +25,7 @@ func _ready():
 	cur_state = states.ROAR
 	_handle_animation(cur_state)
 	player = get_node(player_path)
+	player.connect("died", _on_player_died)
 
 	
 func _process(delta):
@@ -64,3 +65,7 @@ func _handle_animation(state: states):
 func _play_anim(anim: String):
 	if animation_player.current_animation != anim:
 		animation_player.play(anim)
+
+func _on_player_died():
+	set_process(false)
+	_handle_animation(states.ROAR)
