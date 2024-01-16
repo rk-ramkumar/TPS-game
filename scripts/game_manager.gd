@@ -31,9 +31,14 @@ func _input(event):
 func _game_over(kill_count: int):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
+	if kill_count > Variables.kills:
+		Variables.kills = kill_count
+		
 	var survival_time = round((Time.get_ticks_msec() - start_time) / 1000.0)
+	
 	game_over.get_node("CenterContainer/VBoxContainer/SurvivalTime").text = str(survival_time) + " s"
 	game_over.get_node("CenterContainer/VBoxContainer/Kills").text ="Kills: " + str(kill_count)
+	game_over.get_node("$BestKills").text = "Best Kills:  " + str(Variables.kills)
 
 	remove_child(map)
 	game_over.show()
