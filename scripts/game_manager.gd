@@ -23,6 +23,11 @@ var player_killed : int = 0:
 
 func _ready():
 	start_time = Time.get_ticks_msec()
+	var voices = DisplayServer.tts_get_voices_for_language("en")
+	var voice_id = voices[0]
+
+	# Say "Hello, world!".
+	DisplayServer.tts_speak("Hello, world!", voice_id)
 	game_over.hide()
 
 func _notification(what):

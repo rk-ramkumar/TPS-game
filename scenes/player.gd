@@ -42,10 +42,10 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventScreenDrag:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sen))
 		pivot.rotate_x(deg_to_rad(-event.relative.y * mouse_sen))
-		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-90), deg_to_rad(45))
+		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-55), deg_to_rad(75))
 		
 func _physics_process(delta):
 	

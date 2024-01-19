@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dttjthmmadrbg"]
+[gd_scene load_steps=15 format=3 uid="uid://dttjthmmadrbg"]
 
 [ext_resource type="PackedScene" uid="uid://m7o2nxlm5nf0" path="res://scenes/pause_screen.tscn" id="1_2anv5"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5158o"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://762jt7hbxr58" path="res://scenes/joystick.tscn" id="4_y4a6l"]
 [ext_resource type="PackedScene" uid="uid://byd415bgc5uux" path="res://scenes/game_over.tscn" id="5_5dad6"]
 [ext_resource type="PackedScene" uid="uid://eemrmlnp2td2" path="res://scenes/map/survival.tscn" id="6_abywf"]
+[ext_resource type="Material" uid="uid://d01d0h08lqqn6" path="res://addons/proton_scatter/demos/assets/materials/m_trunk.tres" id="8_5rgq3"]
+[ext_resource type="Material" uid="uid://d28lq2qtgdyie" path="res://addons/proton_scatter/demos/assets/materials/m_pine_leaves.tres" id="9_mwt7r"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_akbpf"]
 panorama = ExtResource("2_i7liu")
@@ -137,6 +139,9 @@ bones/61/rotation = Quaternion(-0.40962, 0.0664211, -0.0277538, 0.909412)
 bones/62/rotation = Quaternion(0.536065, 0.0210919, 0.142205, 0.831846)
 bones/63/rotation = Quaternion(0.316881, -0.0309618, 0.0102214, 0.947905)
 
+[node name="HitBox" parent="Survival/Map/NavigationRegion3D/Jaw" index="6"]
+hit_damage = 10
+
 [node name="CollisionShape3D" parent="Survival/Map/NavigationRegion3D/Jaw/HitBox" index="0"]
 shape = SubResource("CapsuleShape3D_4ioln")
 
@@ -144,17 +149,19 @@ shape = SubResource("CapsuleShape3D_4ioln")
 shape = SubResource("CapsuleShape3D_cicd4")
 
 [node name="Trunk" parent="Survival/Map/Forest/pine_tree" index="0"]
+material_override = ExtResource("8_5rgq3")
 surface_material_override/0 = null
 
 [node name="Leaves" parent="Survival/Map/Forest/pine_tree" index="1"]
+material_override = ExtResource("9_mwt7r")
 surface_material_override/0 = null
 
-[node name="Eren" parent="Survival" index="1"]
+[node name="Eren" parent="Survival" index="1" node_paths=PackedStringArray("game_manager")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.20652, -0.657434)
-game_manager = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":3,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("1_5158o"),"map":Object(Node3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":1,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":null)
-,"game_over":Object(CanvasLayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":3,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","layer":1,"visible":true,"offset":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"transform":Transform2D(1, 0, 0, 1, 0, 0),"follow_viewport_enabled":false,"follow_viewport_scale":1.0,"script":Resource("res://scripts/game_over.gd"))
-)
+game_manager = NodePath("../..")
 
+[node name="Health" parent="Survival/Eren" index="5"]
+max_health = 500
 
 [editable path="Survival"]
 [editable path="Survival/Map/NavigationRegion3D/Jaw"]

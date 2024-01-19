@@ -10,6 +10,10 @@ func _ready():
 	connect("area_entered", _on_area_entered )
 
 func _on_area_entered(hitBox: HitBox):
-	if hitBox:
-		print(hitBox.owner,owner, hitBox.hit_damage, health.max_health, health.current_health)
-		health.take_damage(hitBox.hit_damage)
+	if hitBox == null:
+		return
+	
+	if hitBox.owner == owner:
+		return
+
+	health.take_damage(hitBox.hit_damage)
