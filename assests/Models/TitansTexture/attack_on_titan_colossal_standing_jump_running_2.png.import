@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbsp3s4wdgqh3"
 path.s3tc="res://.godot/imported/attack_on_titan_colossal_standing_jump_running_2.png-9c0fc98d3f959eaa24cf0e09321da4ee.s3tc.ctex"
+path.etc2="res://.godot/imported/attack_on_titan_colossal_standing_jump_running_2.png-9c0fc98d3f959eaa24cf0e09321da4ee.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assests/Models/TitansTexture/attack_on_titan_colossal_standing_jump_running_2.png"
-dest_files=["res://.godot/imported/attack_on_titan_colossal_standing_jump_running_2.png-9c0fc98d3f959eaa24cf0e09321da4ee.s3tc.ctex"]
+dest_files=["res://.godot/imported/attack_on_titan_colossal_standing_jump_running_2.png-9c0fc98d3f959eaa24cf0e09321da4ee.s3tc.ctex", "res://.godot/imported/attack_on_titan_colossal_standing_jump_running_2.png-9c0fc98d3f959eaa24cf0e09321da4ee.etc2.ctex"]
 
 [params]
 

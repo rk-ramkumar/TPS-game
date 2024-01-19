@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy2y8df5uepd1"
 path.bptc="res://.godot/imported/animeSky.hdr-ae21c6bdcbbc74db8cbedfca8af5edd5.bptc.ctex"
+path.astc="res://.godot/imported/animeSky.hdr-ae21c6bdcbbc74db8cbedfca8af5edd5.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assests/animeSky.hdr"
-dest_files=["res://.godot/imported/animeSky.hdr-ae21c6bdcbbc74db8cbedfca8af5edd5.bptc.ctex"]
+dest_files=["res://.godot/imported/animeSky.hdr-ae21c6bdcbbc74db8cbedfca8af5edd5.bptc.ctex", "res://.godot/imported/animeSky.hdr-ae21c6bdcbbc74db8cbedfca8af5edd5.astc.ctex"]
 
 [params]
 

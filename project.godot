@@ -16,6 +16,10 @@ config/quit_on_go_back=false
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/text_to_speech=true
+
 [autoload]
 
 IntroAudio="*res://scenes/intro_audio.tscn"
@@ -86,3 +90,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cid7qav3kp0r5"
 path.s3tc="res://.godot/imported/aot_4_-_porco_galliard_jaw_titan_3d_model_0.png-7deeba15164910898cd4c1ef3401dcfd.s3tc.ctex"
+path.etc2="res://.godot/imported/aot_4_-_porco_galliard_jaw_titan_3d_model_0.png-7deeba15164910898cd4c1ef3401dcfd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assests/Models/TitansTexture/aot_4_-_porco_galliard_jaw_titan_3d_model_0.png"
-dest_files=["res://.godot/imported/aot_4_-_porco_galliard_jaw_titan_3d_model_0.png-7deeba15164910898cd4c1ef3401dcfd.s3tc.ctex"]
+dest_files=["res://.godot/imported/aot_4_-_porco_galliard_jaw_titan_3d_model_0.png-7deeba15164910898cd4c1ef3401dcfd.s3tc.ctex", "res://.godot/imported/aot_4_-_porco_galliard_jaw_titan_3d_model_0.png-7deeba15164910898cd4c1ef3401dcfd.etc2.ctex"]
 
 [params]
 

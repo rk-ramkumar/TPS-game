@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gcdn0dh3frp1"
 path.s3tc="res://.godot/imported/aot_-_eren_yeager_s4_default_3d_model_4.png-5a3f53a316870881593c6b82a80379f1.s3tc.ctex"
+path.etc2="res://.godot/imported/aot_-_eren_yeager_s4_default_3d_model_4.png-5a3f53a316870881593c6b82a80379f1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assests/Models/TitansTexture/aot_-_eren_yeager_s4_default_3d_model_4.png"
-dest_files=["res://.godot/imported/aot_-_eren_yeager_s4_default_3d_model_4.png-5a3f53a316870881593c6b82a80379f1.s3tc.ctex"]
+dest_files=["res://.godot/imported/aot_-_eren_yeager_s4_default_3d_model_4.png-5a3f53a316870881593c6b82a80379f1.s3tc.ctex", "res://.godot/imported/aot_-_eren_yeager_s4_default_3d_model_4.png-5a3f53a316870881593c6b82a80379f1.etc2.ctex"]
 
 [params]
 

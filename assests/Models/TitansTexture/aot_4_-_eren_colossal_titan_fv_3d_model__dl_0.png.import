@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7plogi5que2s"
 path.s3tc="res://.godot/imported/aot_4_-_eren_colossal_titan_fv_3d_model__dl_0.png-87e0b3f1fbfdcb89b5558e0d0609aeed.s3tc.ctex"
+path.etc2="res://.godot/imported/aot_4_-_eren_colossal_titan_fv_3d_model__dl_0.png-87e0b3f1fbfdcb89b5558e0d0609aeed.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assests/Models/TitansTexture/aot_4_-_eren_colossal_titan_fv_3d_model__dl_0.png"
-dest_files=["res://.godot/imported/aot_4_-_eren_colossal_titan_fv_3d_model__dl_0.png-87e0b3f1fbfdcb89b5558e0d0609aeed.s3tc.ctex"]
+dest_files=["res://.godot/imported/aot_4_-_eren_colossal_titan_fv_3d_model__dl_0.png-87e0b3f1fbfdcb89b5558e0d0609aeed.s3tc.ctex", "res://.godot/imported/aot_4_-_eren_colossal_titan_fv_3d_model__dl_0.png-87e0b3f1fbfdcb89b5558e0d0609aeed.etc2.ctex"]
 
 [params]
 
