@@ -9,6 +9,6 @@ func _ready():
 	current_health = max_health
 
 func take_damage(amount):
-	# Reduce health when taking damage
+	# Reduce health when taking damage.
 	current_health -= amount
 	emit_signal("damage_recieve")
